@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { socials } from "@/data/socials";
+
+export const metadata: Metadata = {
+  title: "Контакты | MKZV WEB",
+  description: "Обсудить проект: Telegram, GitHub и форма заявки для быстрого старта.",
+};
 
 export default function ContactsPage() {
   return (

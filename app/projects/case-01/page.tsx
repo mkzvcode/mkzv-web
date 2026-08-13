@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArtworkSlot } from "@/components/ArtworkSlot";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { metrics, processSteps } from "@/data/projects";
+
+export const metadata: Metadata = {
+  title: "Кейс проекта | MKZV WEB",
+  description: "Разбор подхода: контекст, решение, система и итог — от задачи до запуска.",
+};
 
 const caseSections = [
   ["Контекст", "Бренду нужен новый сайт: уверенный, понятный и аккуратный для человека, который впервые видит продукт."],
@@ -20,7 +26,7 @@ export default function CasePage() {
         <section className="case-hero relative overflow-hidden border-b border-[var(--line)] py-8">
           <ArtworkSlot className="case-sphere" wide />
           <div className="relative z-10 grid gap-7 xl:grid-cols-[minmax(0,0.72fr)_minmax(360px,0.56fr)]">
-            <div className="self-end"><p className="mono mb-6 text-[var(--muted)]">03. Project case / 01</p><h1 className="display case-title">Кейс / 01<br />От задачи до запуска</h1></div>
+            <div className="self-end"><p className="mono mb-6 text-[var(--muted)]">03. Project case</p><h1 className="display case-title">Кейс проекта<br />От задачи до запуска</h1></div>
             <p className="copy self-end text-[var(--muted)]">Это базовая структура будущего кейса. После запуска здесь появятся скриншоты, метрики, стек, роль и результат.</p>
           </div>
         </section>

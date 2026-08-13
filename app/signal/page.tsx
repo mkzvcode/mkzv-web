@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { ArtworkSlot } from "@/components/ArtworkSlot";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+
+export const metadata: Metadata = {
+  title: "Signal | MKZV WEB",
+  description: "Музыкальная сторона MKZV: биты, шум и звуковые эксперименты — отдельный слой личного языка.",
+};
 
 const tracks = [["01", "Static Flow", "04:12"], ["02", "System Drift", "05:03"], ["03", "White Pressure", "03:47"], ["04", "Collapse Point", "06:11"]];
 

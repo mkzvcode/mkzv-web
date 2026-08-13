@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ProjectRow } from "@/components/ProjectRow";
 import { SectionLabel } from "@/components/SectionLabel";
 import { projects } from "@/data/projects";
+
+export const metadata: Metadata = {
+  title: "Проекты | MKZV WEB",
+  description: "Каталог работ: сайты, сервисы и интерфейсы, где дизайн, код и логика собраны в одно решение.",
+};
 
 export default function ProjectsPage() {
   return (

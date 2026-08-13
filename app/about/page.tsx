@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SectionLabel } from "@/components/SectionLabel";
 import { services } from "@/data/projects";
+
+export const metadata: Metadata = {
+  title: "Обо мне | MKZV WEB",
+  description: "Направления работы, подход и стек: как я собираю сайты и интерфейсы от структуры до запуска.",
+};
 
 const principles = ["Индивидуальный подход", "Честные сроки", "Прозрачный процесс", "Результат"];
 
