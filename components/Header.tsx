@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import type { MouseEvent } from "react";
 import { useState } from "react";
 
 const nav = [
@@ -15,10 +16,19 @@ type HeaderProps = { active?: string };
 export function Header({ active }: HeaderProps) {
   const [open, setOpen] = useState(false);
 
+  const handleBrandClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    setOpen(false);
+
+    if (window.location.pathname === "/") {
+      event.preventDefault();
+      window.location.assign("/");
+    }
+  };
+
   return (
     <header className="site-header page-shell sticky top-0 z-20 border-x border-b border-[var(--line)] bg-[rgba(18,18,17,0.9)] backdrop-blur-md">
       <div className="grid min-h-16 grid-cols-[1fr_auto] items-center gap-4 px-4 lg:grid-cols-[1fr_auto_48px] lg:px-6">
-        <Link className="brand-link mono text-[var(--paper)]" href="/" onClick={() => setOpen(false)}>MKZV WEB</Link>
+        <Link className="brand-link mono text-[var(--paper)]" href="/" onClick={handleBrandClick}>MKZV WEB</Link>
         <nav aria-label="Основная навигация" className="hidden items-center gap-7 lg:flex">
           {nav.map((item) => (
             <Link
