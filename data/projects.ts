@@ -41,9 +41,9 @@ export const projects: Project[] = [
 export const processSteps = ["Разбор", "Оффер", "Структура", "Дизайн", "Код", "Запуск"];
 
 export const clientSignals = [
-  { value: "5 сек", label: "чтобы понять, чем ты полезен" },
-  { value: "1 экран", label: "оффер, доверие, действие" },
-  { value: "0 хаоса", label: "лишние блоки не попадают в сайт" },
+  { value: "5 сек", label: "понять пользу без скролла" },
+  { value: "1 экран", label: "оффер, доверие и CTA" },
+  { value: "0 хаоса", label: "только нужные блоки" },
   { value: "mobile", label: "сначала телефон, потом desktop" },
 ];
 

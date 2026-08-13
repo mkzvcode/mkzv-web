@@ -40,7 +40,7 @@ export function ScrollMotion() {
               : "up";
 
       target.dataset.scrollReveal = direction;
-      target.style.setProperty("--reveal-delay", `${(index % 4) * 75}ms`);
+      target.style.setProperty("--reveal-delay", `${(index % 4) * 45}ms`);
     });
 
     const observer = new IntersectionObserver(
@@ -52,7 +52,7 @@ export function ScrollMotion() {
           observer.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -9%", threshold: 0.12 },
+      { rootMargin: "0px 0px -7%", threshold: 0.1 },
     );
 
     targets.forEach((target) => observer.observe(target));

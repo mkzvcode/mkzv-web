@@ -96,6 +96,9 @@
   --line-strong: rgba(192, 192, 191, 0.34);
   --panel: rgba(192, 192, 191, 0.022);
   --panel-2: rgba(192, 192, 191, 0.045);
+  --tone-cold: rgba(112, 128, 138, 0.09);
+  --tone-ash: rgba(192, 192, 191, 0.07);
+  --tone-warm: rgba(147, 144, 138, 0.08);
   --font-body: "Benzin", "IBM Plex Sans", sans-serif;
   --font-display: "Benzin", "IBM Plex Sans Condensed", sans-serif;
   --font-mono: "Benzin", "IBM Plex Mono", monospace;
@@ -115,8 +118,10 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at 72% 0%, rgba(192, 192, 191, 0.055), transparent 26rem),
-    linear-gradient(180deg, #111110 0%, #050505 100%);
+    radial-gradient(circle at 13% 18%, rgba(192, 192, 191, 0.075), transparent 18rem),
+    radial-gradient(circle at 84% 28%, rgba(112, 128, 138, 0.07), transparent 24rem),
+    radial-gradient(circle at 42% 86%, rgba(147, 144, 138, 0.055), transparent 22rem),
+    linear-gradient(180deg, #10100f 0%, #070707 48%, #050505 100%);
   color: var(--paper);
   font-family: var(--font-body);
   font-weight: 400;
@@ -132,7 +137,7 @@ body::before {
   z-index: -1;
   pointer-events: none;
   content: "";
-  opacity: 0.22;
+  opacity: 0.18;
   background-image:
     linear-gradient(rgba(192, 192, 191, 0.026) 1px, transparent 1px),
     linear-gradient(90deg, rgba(192, 192, 191, 0.026) 1px, transparent 1px),
@@ -142,7 +147,6 @@ body::before {
     64px 64px,
     5px 5px;
   mix-blend-mode: screen;
-  animation: ambient-grid 38s linear infinite;
 }
 
 a {
@@ -167,8 +171,27 @@ textarea {
 }
 
 .section {
+  position: relative;
   border-top: 1px solid var(--line);
   padding: clamp(44px, 8vw, 112px) 0;
+}
+
+.section:nth-of-type(4n + 2) {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(192, 192, 191, 0.055), transparent 19rem),
+    linear-gradient(110deg, rgba(192, 192, 191, 0.018), transparent 34%);
+}
+
+.section:nth-of-type(4n + 3) {
+  background:
+    radial-gradient(circle at 92% 22%, rgba(112, 128, 138, 0.06), transparent 21rem),
+    linear-gradient(250deg, rgba(112, 128, 138, 0.018), transparent 38%);
+}
+
+.section:nth-of-type(4n) {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(147, 144, 138, 0.045), transparent 18rem),
+    linear-gradient(180deg, transparent, rgba(192, 192, 191, 0.012));
 }
 
 .display {
@@ -196,14 +219,24 @@ textarea {
 
 .panel {
   border: 1px solid var(--line);
-  background: var(--panel);
+  background:
+    linear-gradient(180deg, rgba(192, 192, 191, 0.028), rgba(192, 192, 191, 0.014)),
+    var(--panel);
 }
 
 .page-grid {
   background-image:
+    radial-gradient(circle at 15% 14%, rgba(192, 192, 191, 0.045), transparent 22rem),
+    radial-gradient(circle at 86% 38%, rgba(112, 128, 138, 0.04), transparent 26rem),
+    repeating-linear-gradient(135deg, transparent 0 18px, rgba(192, 192, 191, 0.012) 18px 19px),
     linear-gradient(rgba(192, 192, 191, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(192, 192, 191, 0.025) 1px, transparent 1px);
-  background-size: 72px 72px;
+  background-size:
+    auto,
+    auto,
+    96px 96px,
+    72px 72px,
+    72px 72px;
 }
 
 .thin-button {
@@ -224,10 +257,10 @@ textarea {
   line-height: 1.35;
   text-transform: uppercase;
   transition:
-    border-color 240ms ease,
-    background-color 240ms ease,
-    color 240ms ease,
-    transform 240ms ease;
+    border-color 170ms ease,
+    background-color 170ms ease,
+    color 170ms ease,
+    transform 170ms ease;
 }
 
 .thin-button::before {
@@ -237,11 +270,11 @@ textarea {
   content: "";
   background: var(--paper);
   transform: translateX(-102%);
-  transition: transform 340ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .thin-button span {
-  transition: transform 240ms ease;
+  transition: transform 170ms ease;
 }
 
 .signal-listen {
@@ -307,6 +340,12 @@ textarea {
 .direction-title {
   font-size: clamp(1.65rem, 2.4vw, 2.75rem);
   line-height: 0.96;
+}
+
+.panel .display {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
 }
 
 .home-hero {
@@ -473,8 +512,9 @@ textarea {
 .contact-form input,
 .contact-form textarea {
   transition:
-    border-color 220ms ease,
-    background-color 220ms ease;
+    border-color 170ms ease,
+    background-color 170ms ease,
+    transform 170ms ease;
 }
 
 .contact-form input,
@@ -516,9 +556,9 @@ textarea {
 
 .signal-track {
   transition:
-    border-color 220ms ease,
-    background-color 220ms ease,
-    transform 220ms ease;
+    border-color 170ms ease,
+    background-color 170ms ease,
+    transform 170ms ease;
 }
 
 .signal-wave {
@@ -554,11 +594,12 @@ textarea,
   position: relative;
   min-height: 280px;
   overflow: hidden;
+  contain: paint;
   padding: clamp(1.25rem, 2vw, 2rem);
   transition:
-    border-color 260ms ease,
-    background-color 260ms ease,
-    transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+    border-color 170ms ease,
+    background-color 170ms ease,
+    transform 170ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .service-card::before {
@@ -588,11 +629,12 @@ textarea,
 .metric-tile {
   position: relative;
   overflow: hidden;
+  contain: paint;
   min-height: 260px;
   transition:
-    border-color 260ms ease,
-    background-color 260ms ease,
-    transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+    border-color 170ms ease,
+    background-color 170ms ease,
+    transform 170ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sell-card::before,
@@ -645,7 +687,16 @@ textarea,
 }
 
 .metric-tile {
+  display: flex;
   min-height: 190px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(1.4rem, 2vw, 2.5rem);
+  padding: clamp(1rem, 1.55vw, 1.45rem);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(192, 192, 191, 0.06), transparent 12rem),
+    linear-gradient(145deg, rgba(112, 128, 138, 0.035), rgba(192, 192, 191, 0.012)),
+    var(--panel);
 }
 
 .metric-tile::before {
@@ -663,6 +714,45 @@ textarea,
 .metric-tile > * {
   position: relative;
   z-index: 1;
+}
+
+.metric-value {
+  font-size: clamp(1.55rem, 2.35vw, 3rem);
+  line-height: 0.9;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
+  white-space: nowrap;
+}
+
+.metric-label {
+  max-width: 24ch;
+  color: var(--muted);
+  line-height: 1.55;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.service-card:nth-child(2n),
+.market-card:nth-child(2n),
+.deliverable-card:nth-child(2n),
+.route-card:nth-child(2n),
+.package-card:nth-child(2n) {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(112, 128, 138, 0.055), transparent 15rem),
+    linear-gradient(150deg, rgba(112, 128, 138, 0.028), rgba(192, 192, 191, 0.012)),
+    var(--panel);
+}
+
+.service-card:nth-child(3n),
+.audience-card:nth-child(3n),
+.sell-card:nth-child(3n),
+.faq-card:nth-child(3n),
+.metric-tile:nth-child(3n) {
+  background:
+    radial-gradient(circle at 0% 100%, rgba(147, 144, 138, 0.055), transparent 14rem),
+    linear-gradient(25deg, rgba(147, 144, 138, 0.025), rgba(192, 192, 191, 0.012)),
+    var(--panel);
 }
 
 .route-card {
@@ -730,10 +820,11 @@ textarea,
 .project-card {
   position: relative;
   overflow: hidden;
+  contain: paint;
   transition:
-    border-color 260ms ease,
-    background-color 260ms ease,
-    transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+    border-color 170ms ease,
+    background-color 170ms ease,
+    transform 170ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-card::before {
@@ -757,10 +848,11 @@ textarea,
   position: relative;
   min-height: 175px;
   overflow: hidden;
+  contain: paint;
   transition:
-    border-color 260ms ease,
-    background-color 260ms ease,
-    transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+    border-color 170ms ease,
+    background-color 170ms ease,
+    transform 170ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .process-card::before {
@@ -778,6 +870,18 @@ textarea,
 .process-card > * {
   position: relative;
   z-index: 1;
+}
+
+.process-step-title {
+  font-size: clamp(1.25rem, 1.45vw, 2rem);
+  line-height: 0.95;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
+}
+
+.case-process .process-card {
+  min-height: 150px;
 }
 
 .texture-frame::after {
@@ -837,22 +941,22 @@ main > section:first-child {
 .scroll-motion-ready [data-scroll-reveal] {
   opacity: 0;
   transition:
-    opacity 720ms ease,
-    transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 420ms ease,
+    transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
 
 .scroll-motion-ready [data-scroll-reveal="left"] {
-  transform: translate3d(-72px, 0, 0);
+  transform: translate3d(-32px, 0, 0);
 }
 
 .scroll-motion-ready [data-scroll-reveal="right"] {
-  transform: translate3d(72px, 0, 0);
+  transform: translate3d(32px, 0, 0);
 }
 
 .scroll-motion-ready [data-scroll-reveal="up"] {
-  transform: translate3d(0, 48px, 0);
+  transform: translate3d(0, 28px, 0);
 }
 
 .scroll-motion-ready [data-scroll-reveal].is-revealed {
@@ -865,7 +969,7 @@ main > section:first-child {
   .thin-button:hover {
     border-color: var(--paper);
     color: var(--bg-deep);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
   }
 
   .thin-button:hover::before {
@@ -873,7 +977,7 @@ main > section:first-child {
   }
 
   .thin-button:hover span {
-    transform: translateX(5px);
+    transform: translateX(3px);
   }
 
   .nav-link:hover::after,
@@ -904,7 +1008,7 @@ main > section:first-child {
   .metric-tile:hover {
     border-color: var(--line-strong);
     background-color: var(--panel-2);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
   }
 
   .scroll-motion-ready .service-card.is-revealed:hover,
@@ -918,18 +1022,14 @@ main > section:first-child {
   .scroll-motion-ready .faq-card.is-revealed:hover,
   .scroll-motion-ready .route-card.is-revealed:hover,
   .scroll-motion-ready .metric-tile.is-revealed:hover {
-    transform: translate3d(0, -4px, 0);
-  }
-
-  .project-card:hover .texture-frame::after {
-    animation-duration: 3.8s;
+    transform: translate3d(0, -2px, 0);
   }
 
   .contact-link:hover,
   .signal-track:hover {
     border-color: var(--line-strong);
     background-color: var(--panel-2);
-    transform: translateX(4px);
+    transform: translateX(2px);
   }
 }
 
@@ -1095,6 +1195,27 @@ main > section:first-child {
   .thin-button {
     gap: 14px;
   }
+
+  .metric-tile {
+    min-height: 164px;
+  }
+
+  .metric-value {
+    font-size: clamp(1.55rem, 8.6vw, 2.55rem);
+  }
+
+  .metric-label {
+    max-width: 28ch;
+  }
+
+  .process-step-title {
+    font-size: clamp(1.25rem, 7vw, 1.8rem);
+  }
+
+  .scroll-motion-ready [data-scroll-reveal="left"],
+  .scroll-motion-ready [data-scroll-reveal="right"] {
+    transform: translate3d(0, 24px, 0);
+  }
 }
 
 @media (min-width: 761px) and (max-width: 1023px) {
@@ -1109,7 +1230,15 @@ main > section:first-child {
 }
 
 @media (min-width: 1024px) {
-  .process-strip {
+  .process-strip,
+  .case-process {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .process-strip,
+  .case-process {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }

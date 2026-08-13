@@ -38,12 +38,12 @@ export default function CasePage() {
 
         <section className="case-metrics border-y border-[var(--line)] py-8">
           <p className="mono mb-5 text-[var(--paper)]">02. Показатели</p>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{metrics.map((metric) => <div className="panel p-4" key={metric.label}><p className="display text-[clamp(2rem,3.2vw,3.7rem)]">{metric.value}</p><p className="mono mt-5 leading-5 text-[var(--muted)]">{metric.label}</p></div>)}</div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{metrics.map((metric) => <div className="metric-tile panel" key={metric.label}><p className="display metric-value">{metric.value}</p><p className="mono metric-label">{metric.label}</p></div>)}</div>
         </section>
 
         <section className="py-8">
           <p className="mono mb-5 text-[var(--paper)]">03. Процесс</p>
-          <div className="case-process grid gap-3 md:grid-cols-3 xl:grid-cols-6">{processSteps.map((step, index) => <div className="panel p-4" key={step}><p className="mono text-[var(--muted)]">0{index + 1}</p><p className="display mt-8 text-[clamp(1.15rem,1.5vw,1.65rem)]">{step}</p></div>)}</div>
+          <div className="case-process grid gap-3 md:grid-cols-3 xl:grid-cols-6">{processSteps.map((step, index) => <div className="process-card panel p-4" data-index={`0${index + 1}`} key={step}><p className="mono text-[var(--muted)]">0{index + 1}</p><p className="display process-step-title mt-8">{step}</p></div>)}</div>
         </section>
       </main>
       <Footer />

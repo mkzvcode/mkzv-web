@@ -21,7 +21,7 @@
   mix-blend-mode: screen;
   opacity: 0.9;
   transform: translate3d(0, var(--sphere-y, 0px), 0) scale(var(--sphere-scale, 1.04));
-  transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 140ms linear;
   will-change: transform;
 }
 
