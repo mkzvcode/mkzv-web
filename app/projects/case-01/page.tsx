@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 };
 
 const caseSections = [
-  ["Контекст", "Бренду нужен новый сайт: уверенный, понятный и аккуратный для человека, который впервые видит продукт."],
-  ["Решение", "Собираем структуру, контент, первый экран и путь до контакта без лишней декоративности."],
-  ["Система", "Главная архитектура, дизайн-сетка, компоненты, адаптив, SEO-основа и подготовка к расширению."],
-  ["Итог", "Сайт становится рабочей точкой входа: объясняет, показывает уровень и приводит человека к заявке."],
+  ["Контекст", "Бизнесу нужен сайт, который выглядит уверенно и объясняет услугу человеку, пришедшему из рекламы, поиска или личной рекомендации."],
+  ["Решение", "Сначала собирается оффер и сценарий: первый экран, блок доверия, услуги, кейсы, возражения, CTA и контакт. Потом дизайн и код."],
+  ["Система", "Страница проектируется как основа для роста: компоненты, адаптив, SEO-база, аналитика, форма заявки и возможность добавить новые разделы."],
+  ["Итог", "Посетитель быстрее понимает, что вы делаете, почему вам можно доверять и какой следующий шаг. Сайт работает как точка входа в продажу."],
 ];
 
 export default function CasePage() {
@@ -26,13 +26,13 @@ export default function CasePage() {
         <section className="case-hero relative overflow-hidden border-b border-[var(--line)] py-8">
           <ArtworkSlot className="case-sphere" wide />
           <div className="relative z-10 grid gap-7 xl:grid-cols-[minmax(0,0.72fr)_minmax(360px,0.56fr)]">
-            <div className="self-end"><p className="mono mb-6 text-[var(--muted)]">03. Project case</p><h1 className="display case-title">Кейс проекта<br />От задачи до запуска</h1></div>
-            <p className="copy self-end text-[var(--muted)]">Это базовая структура будущего кейса. После запуска здесь появятся скриншоты, метрики, стек, роль и результат.</p>
+            <div className="self-end"><p className="mono mb-6 text-[var(--muted)]">03. Project case / 01</p><h1 className="display case-title">От заявки<br />до сайта</h1></div>
+            <p className="copy self-end text-[var(--muted)]">Демонстрационный кейс показывает, как я думаю о коммерческом сайте: сначала путь клиента, доверие и понятное действие, потом визуальная оболочка.</p>
           </div>
         </section>
 
         <section className="case-analysis grid gap-7 py-9 xl:grid-cols-[210px_minmax(0,1fr)]">
-          <aside><p className="mono mb-4 text-[var(--paper)]">01. Разбор</p><p className="copy text-[var(--muted)]">От контекста к решению — коротко и по делу.</p></aside>
+          <aside><p className="mono mb-4 text-[var(--paper)]">01. Разбор</p><p className="copy text-[var(--muted)]">Сайт продаёт сильнее, когда у него есть стиль и логика: кто пришёл, что он ищет, чему он должен поверить.</p></aside>
           <div className="grid gap-3 lg:grid-cols-2">{caseSections.map(([title, text]) => <article className="case-unit panel p-5" key={title}><h2 className="display case-card-title">{title}</h2><p className="copy mt-5 text-[var(--muted)]">{text}</p></article>)}</div>
         </section>
 

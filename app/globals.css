@@ -341,6 +341,18 @@ textarea {
   line-height: 1.65;
 }
 
+.hero-proof {
+  max-width: 680px;
+}
+
+.hero-proof p {
+  border: 1px solid var(--line);
+  background: rgba(192, 192, 191, 0.018);
+  padding: 0.85rem 0.9rem;
+  color: var(--paper);
+  line-height: 1.45;
+}
+
 .signal-teaser,
 .signal-hero,
 .case-hero {
@@ -566,6 +578,93 @@ textarea,
   z-index: 1;
 }
 
+.sell-card,
+.package-card,
+.audience-card,
+.market-card,
+.deliverable-card,
+.faq-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+  transition:
+    border-color 260ms ease,
+    background-color 260ms ease,
+    transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sell-card::before,
+.package-card::before,
+.audience-card::before,
+.market-card::before,
+.deliverable-card::before,
+.faq-card::before {
+  position: absolute;
+  right: -0.14em;
+  bottom: -0.18em;
+  color: rgba(192, 192, 191, 0.04);
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 12vw, 13rem);
+  font-weight: 800;
+  line-height: 0.75;
+}
+
+.sell-card::before {
+  content: "WHY";
+}
+
+.package-card::before {
+  content: "BUY";
+}
+
+.audience-card::before {
+  content: "WHO";
+}
+
+.market-card::before {
+  content: "EDGE";
+  font-size: clamp(4.8rem, 8.5vw, 9rem);
+}
+
+.deliverable-card::before {
+  content: "IN";
+}
+
+.faq-card::before {
+  content: "?";
+  font-size: clamp(6rem, 10vw, 12rem);
+}
+
+.sell-card > *,
+.package-card > *,
+.audience-card > *,
+.market-card > *,
+.deliverable-card > *,
+.faq-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.trust-strip .panel {
+  min-height: 86px;
+}
+
+.package-point {
+  position: relative;
+  border-top: 1px solid var(--line);
+  padding-top: 0.75rem;
+  color: var(--muted);
+  line-height: 1.55;
+  text-transform: none;
+}
+
+.package-point::before {
+  display: inline-block;
+  margin-right: 0.65rem;
+  color: var(--paper);
+  content: "/";
+}
+
 .project-card {
   position: relative;
   overflow: hidden;
@@ -640,6 +739,21 @@ textarea,
   position: relative;
 }
 
+.mobile-nav-link {
+  min-width: 0;
+  border-right: 1px solid var(--line);
+  padding: 0.8rem 0.25rem;
+  font-size: clamp(0.55rem, 2.25vw, 0.66rem);
+  line-height: 1.1;
+  transition:
+    background-color 220ms ease,
+    color 220ms ease;
+}
+
+.mobile-nav-link:last-child {
+  border-right: 0;
+}
+
 .nav-link::after,
 .footer-cta::after {
   position: absolute;
@@ -706,13 +820,24 @@ main > section:first-child {
     transform-origin: left;
   }
 
+  .mobile-nav-link:hover {
+    background-color: var(--panel-2);
+    color: var(--paper);
+  }
+
   .brand-link:hover {
     animation: brand-jitter 360ms steps(2, end) both;
   }
 
   .service-card:hover,
   .process-card:hover,
-  .project-card:hover {
+  .project-card:hover,
+  .sell-card:hover,
+  .package-card:hover,
+  .audience-card:hover,
+  .market-card:hover,
+  .deliverable-card:hover,
+  .faq-card:hover {
     border-color: var(--line-strong);
     background-color: var(--panel-2);
     transform: translateY(-4px);
@@ -720,7 +845,13 @@ main > section:first-child {
 
   .scroll-motion-ready .service-card.is-revealed:hover,
   .scroll-motion-ready .process-card.is-revealed:hover,
-  .scroll-motion-ready .project-card.is-revealed:hover {
+  .scroll-motion-ready .project-card.is-revealed:hover,
+  .scroll-motion-ready .sell-card.is-revealed:hover,
+  .scroll-motion-ready .package-card.is-revealed:hover,
+  .scroll-motion-ready .audience-card.is-revealed:hover,
+  .scroll-motion-ready .market-card.is-revealed:hover,
+  .scroll-motion-ready .deliverable-card.is-revealed:hover,
+  .scroll-motion-ready .faq-card.is-revealed:hover {
     transform: translate3d(0, -4px, 0);
   }
 
@@ -878,6 +1009,15 @@ main > section:first-child {
 
   .service-card {
     min-height: 245px;
+  }
+
+  .sell-card,
+  .package-card,
+  .audience-card,
+  .market-card,
+  .deliverable-card,
+  .faq-card {
+    min-height: 230px;
   }
 
   .about-service {

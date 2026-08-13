@@ -36,16 +36,13 @@ export function Header({ active }: HeaderProps) {
           aria-controls="mobile-nav"
           aria-expanded={open}
           className="nav-link mono justify-self-end lg:hidden"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen((value) => !value)}
           type="button"
         >
           {open ? "Закрыть" : "Меню"}
         </button>
       </div>
 
-      {/* Мобильное меню: те же пункты, что и в десктопной навигации.
-          Раньше здесь была ссылка "Меню", которая вела прямо на /projects —
-          «Обо мне» и «Контакты» были недостижимы через шапку на узких экранах. */}
       <nav
         aria-label="Мобильная навигация"
         className={`grid overflow-hidden border-t border-[var(--line)] transition-[grid-template-rows] duration-300 ease-out lg:hidden ${
