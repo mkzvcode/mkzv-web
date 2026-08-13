@@ -256,6 +256,8 @@ textarea {
   font-weight: 500;
   line-height: 1.35;
   text-transform: uppercase;
+  overflow-wrap: normal;
+  word-break: normal;
   transition:
     border-color 170ms ease,
     background-color 170ms ease,
@@ -279,6 +281,9 @@ textarea {
 
 .signal-listen {
   width: 100%;
+  min-width: 128px;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .text-muted {
@@ -805,7 +810,6 @@ textarea {
 
 input,
 textarea,
-.thin-button,
 .mono {
   overflow-wrap: anywhere;
 }
