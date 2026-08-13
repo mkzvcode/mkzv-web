@@ -583,7 +583,9 @@ textarea,
 .audience-card,
 .market-card,
 .deliverable-card,
-.faq-card {
+.faq-card,
+.route-card,
+.metric-tile {
   position: relative;
   overflow: hidden;
   min-height: 260px;
@@ -598,7 +600,9 @@ textarea,
 .audience-card::before,
 .market-card::before,
 .deliverable-card::before,
-.faq-card::before {
+.faq-card::before,
+.route-card::before,
+.metric-tile::before {
   position: absolute;
   right: -0.14em;
   bottom: -0.18em;
@@ -635,12 +639,70 @@ textarea,
   font-size: clamp(6rem, 10vw, 12rem);
 }
 
+.route-card::before {
+  content: "FLOW";
+  font-size: clamp(4.8rem, 8vw, 8.8rem);
+}
+
+.metric-tile {
+  min-height: 190px;
+}
+
+.metric-tile::before {
+  content: "DATA";
+  font-size: clamp(4.4rem, 7.4vw, 8rem);
+}
+
 .sell-card > *,
 .package-card > *,
 .audience-card > *,
 .market-card > *,
 .deliverable-card > *,
-.faq-card > * {
+.faq-card > *,
+.route-card > *,
+.metric-tile > * {
+  position: relative;
+  z-index: 1;
+}
+
+.route-card {
+  min-height: 250px;
+}
+
+.process-strip {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.check-chip {
+  position: relative;
+  min-height: 56px;
+}
+
+.check-chip::before {
+  margin-right: 0.6rem;
+  color: var(--muted);
+  content: "✓";
+}
+
+.tgpt-panel {
+  position: relative;
+  overflow: hidden;
+  min-height: 360px;
+}
+
+.tgpt-panel::before {
+  position: absolute;
+  right: -0.08em;
+  bottom: -0.18em;
+  color: rgba(192, 192, 191, 0.04);
+  content: "TGPT";
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 19vw, 19rem);
+  font-weight: 800;
+  line-height: 0.75;
+}
+
+.tgpt-panel > * {
   position: relative;
   z-index: 1;
 }
@@ -837,7 +899,9 @@ main > section:first-child {
   .audience-card:hover,
   .market-card:hover,
   .deliverable-card:hover,
-  .faq-card:hover {
+  .faq-card:hover,
+  .route-card:hover,
+  .metric-tile:hover {
     border-color: var(--line-strong);
     background-color: var(--panel-2);
     transform: translateY(-4px);
@@ -851,7 +915,9 @@ main > section:first-child {
   .scroll-motion-ready .audience-card.is-revealed:hover,
   .scroll-motion-ready .market-card.is-revealed:hover,
   .scroll-motion-ready .deliverable-card.is-revealed:hover,
-  .scroll-motion-ready .faq-card.is-revealed:hover {
+  .scroll-motion-ready .faq-card.is-revealed:hover,
+  .scroll-motion-ready .route-card.is-revealed:hover,
+  .scroll-motion-ready .metric-tile.is-revealed:hover {
     transform: translate3d(0, -4px, 0);
   }
 
@@ -1016,7 +1082,9 @@ main > section:first-child {
   .audience-card,
   .market-card,
   .deliverable-card,
-  .faq-card {
+  .faq-card,
+  .route-card,
+  .metric-tile {
     min-height: 230px;
   }
 
@@ -1037,6 +1105,12 @@ main > section:first-child {
 
   .project-row .texture-frame {
     min-height: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .process-strip {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 

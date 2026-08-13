@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ProjectRow } from "@/components/ProjectRow";
 import { SectionLabel } from "@/components/SectionLabel";
-import { projects } from "@/data/projects";
+import { launchChecklist, projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Проекты | MKZV WEB",
@@ -21,8 +21,7 @@ export default function ProjectsPage() {
             <h1 className="display case-title max-w-5xl">Работы под<br />задачу</h1>
           </div>
           <p className="copy self-end text-[var(--muted)]">
-            Здесь собраны форматы, которые чаще всего покупают: сайт для услуги, лендинг под рекламу и интерфейс продукта.
-            Сейчас это честные демонстрационные кейсы: они показывают подход, структуру и то, как будет упакована реальная работа.
+            Здесь не галерея ради галереи. Каждый кейс показывает задачу, роль, стек и результат.
           </p>
         </section>
 
@@ -31,11 +30,20 @@ export default function ProjectsPage() {
           <div className="grid gap-3">{projects.map((project) => <ProjectRow key={project.id} project={project} />)}</div>
         </section>
 
+        <section className="section grid gap-3 border-t border-[var(--line)] pt-10 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,1fr)]">
+          <div>
+            <p className="mono text-[var(--muted)]">02. What is inside</p>
+            <h2 className="display mt-8 case-card-title">Что будет<br />в реальном кейсе</h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            {launchChecklist.slice(0, 8).map((item) => <p className="check-chip mono panel p-4 text-[var(--paper)]" key={item}>{item}</p>)}
+          </div>
+        </section>
+
         <section className="section project-request grid gap-7 border-t border-[var(--line)] pt-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)]">
           <h2 className="display case-card-title">Нужен другой формат?</h2>
           <p className="copy-lg text-[var(--muted)]">
-            Можно собрать сайт эксперта, страницу услуги, каталог, личное портфолио, сервис или связку frontend + backend.
-            Начинаем не с количества страниц, а с задачи: что продаём, кому, через какие блоки доверия и какой следующий шаг нужен.
+            Окей. Начнём с задачи: что продаём, кому и какой шаг ждём от человека.
           </p>
         </section>
       </main>

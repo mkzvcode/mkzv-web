@@ -21,7 +21,7 @@ export function ScrollMotion() {
     ).slice(1);
     const cards = Array.from(
       document.querySelectorAll<HTMLElement>(
-        "main .service-card, main .project-card, main .process-card, main .audience-card, main .market-card, main .deliverable-card, main .faq-card, main article.panel, main form.panel, main section article:not(.panel), main .signal-track, main .contact-link",
+        "main .service-card, main .project-card, main .process-card, main .audience-card, main .market-card, main .deliverable-card, main .faq-card, main .route-card, main .metric-tile, main .tgpt-panel, main article.panel, main form.panel, main section article:not(.panel), main .signal-track, main .contact-link",
       ),
     );
 
