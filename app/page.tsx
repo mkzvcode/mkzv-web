@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArtworkSlot } from "@/components/ArtworkSlot";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { PingPongVideo } from "@/components/PingPongVideo";
 import { ProjectRow } from "@/components/ProjectRow";
 import { SectionLabel } from "@/components/SectionLabel";
 import { VisualPlaceholder } from "@/components/VisualPlaceholder";
@@ -28,10 +27,7 @@ export default function Home() {
   return <><Header /><main className="page-shell page-grid border-x border-[var(--line)]">
     <section className="home-hero product-hero grid gap-8 px-4 py-8 md:px-6 md:py-10 xl:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.72fr)]">
       <div className="flex min-w-0 flex-col justify-between gap-12"><div><p className="mono mb-7 text-[var(--muted)]">01. Home / sites that sell / full-stack</p><h1 className="display hero-title home-title">MKZV<br />WEB</h1><p className="copy-lg mt-8 max-w-2xl text-[var(--muted)]">Собираю сайты, которые выглядят дорого, быстро объясняют услугу и ведут человека к заявке. Дизайн, код и запуск — в одной связке.</p><div className="hero-proof mt-8 grid gap-3 sm:grid-cols-3"><p className="mono">Сайт под ключ</p><p className="mono">Mobile first</p><p className="mono">Форма / TGPT позже</p></div></div><div className="grid max-w-2xl gap-3 sm:grid-cols-2"><Link className="thin-button" href="/contacts">Обсудить сайт <span aria-hidden="true">→</span></Link><Link className="thin-button" href="/projects">Смотреть подход <span aria-hidden="true">→</span></Link></div></div>
-      <div className="hero-artwork hero-artwork-test self-stretch">
-        <PingPongVideo className="hero-video-sphere" src="/media/particle-sphere-header-test.mp4" />
-        <p className="hero-artwork-note mono">Header sphere / ping-pong test<br />MKZV WEB / 2026</p>
-      </div>
+      <div className="hero-artwork self-stretch"><ArtworkSlot className="hero-sphere" wide /><p className="hero-artwork-note mono">Noise sphere / live loop<br />MKZV WEB / 2026</p></div>
     </section>
     <section className="section px-4 md:px-6"><SectionLabel index="02" title="Быстрые сигналы" /><div className="signal-metrics grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{clientSignals.map((item) => <article className="metric-tile panel min-w-0" key={item.value}><p className="display metric-value">{item.value}</p><p className="mono metric-label">{item.label}</p></article>)}</div><div className="visual-break mt-3 grid gap-3 lg:grid-cols-[minmax(0,0.68fr)_minmax(0,0.32fr)]"><VisualPlaceholder label="first screen / ux" title="Оффер без шума" variant="screen" /><VisualPlaceholder label="mobile first" title="Заявка на телефоне" variant="mobile" /></div></section>
     <section className="section px-4 md:px-6"><SectionLabel index="03" title="Что покупают" /><div className="grid gap-3 lg:grid-cols-2">{services.map((service) => <article className="service-card panel min-w-0" data-index={service.meta} key={service.title}><p className="mono mb-10 text-[var(--muted)]">[{service.meta}]</p><h2 className="display service-title">{service.title}</h2><p className="copy mt-6 max-w-xl text-[var(--muted)]">{service.text}</p></article>)}</div><div className="visual-break mt-3 grid gap-3 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,0.45fr)]"><VisualPlaceholder label="site preview / placeholder" title="Экран услуги" variant="screen" /><VisualPlaceholder label="system map / placeholder" title="UI + код + форма" variant="system" /></div></section>

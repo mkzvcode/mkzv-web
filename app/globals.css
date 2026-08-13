@@ -668,36 +668,12 @@ textarea {
   overflow: hidden;
 }
 
-.hero-artwork-test {
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(192, 192, 191, 0.14);
-  background:
-    radial-gradient(circle at 50% 44%, rgba(192, 192, 191, 0.07), transparent 18rem),
-    repeating-radial-gradient(circle at 50% 50%, rgba(192, 192, 191, 0.08) 0 1px, transparent 1px 12px),
-    linear-gradient(135deg, rgba(192, 192, 191, 0.02), rgba(0, 0, 0, 0.18));
-}
-
 .hero-sphere {
   position: absolute;
   inset: 0;
   width: 100%;
   min-height: 100%;
   opacity: 0.68;
-}
-
-.hero-video-sphere {
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: min(96%, 620px);
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-  filter: brightness(1.08) contrast(1.18);
-  mix-blend-mode: screen;
-  opacity: 0.92;
-  transform: rotate(-3deg) scale(1.08);
-  will-change: transform;
 }
 
 .hero-artwork-note {
