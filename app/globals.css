@@ -411,21 +411,31 @@ textarea {
   line-height: 1.35;
 }
 
+.visual-meta span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .visual-title {
   position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  left: 1rem;
+  right: clamp(0.9rem, 1.2vw, 1.2rem);
+  bottom: clamp(0.9rem, 1.35vw, 1.25rem);
+  left: clamp(0.9rem, 1.2vw, 1.2rem);
   z-index: 3;
-  max-width: 11ch;
-  font-size: clamp(1.7rem, 3.4vw, 4.8rem);
-  line-height: 0.9;
+  max-width: min(18ch, calc(100% - 2rem));
+  font-size: clamp(1.25rem, 2.12vw, 3.15rem);
+  line-height: 0.92;
   color: rgba(192, 192, 191, 0.86);
+  overflow-wrap: normal;
+  text-wrap: balance;
+  word-break: normal;
 }
 
 .visual-window {
   position: absolute;
-  inset: 4.5rem clamp(1rem, 4vw, 4rem) 5.2rem;
+  inset: 4.5rem clamp(1rem, 4vw, 4rem) clamp(6.6rem, 7.4vw, 8rem);
   border: 1px solid rgba(192, 192, 191, 0.28);
   background:
     linear-gradient(180deg, rgba(192, 192, 191, 0.08), rgba(192, 192, 191, 0.018)),
@@ -474,9 +484,9 @@ textarea {
 .visual-device {
   position: absolute;
   top: 4.4rem;
+  bottom: clamp(6.6rem, 7.8vw, 8.2rem);
   left: 50%;
   width: min(210px, 48vw);
-  min-height: 72%;
   padding: 1.1rem;
   border: 1px solid rgba(192, 192, 191, 0.28);
   background:
@@ -487,12 +497,12 @@ textarea {
 
 .visual-device span {
   display: block;
-  height: 54px;
+  height: clamp(36px, 4.4vw, 54px);
   margin-top: 0.65rem;
 }
 
 .visual-device .visual-device-orb {
-  height: 128px;
+  height: clamp(82px, 10vw, 128px);
   border-radius: 50%;
   background:
     radial-gradient(circle at 48% 48%, rgba(0, 0, 0, 0.3), transparent 34%),
@@ -501,7 +511,7 @@ textarea {
 
 .visual-waveform {
   position: absolute;
-  inset: 5rem 1.2rem 5.4rem;
+  inset: 5rem 1.2rem clamp(6.8rem, 7.6vw, 8.2rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -518,18 +528,18 @@ textarea {
 
 .visual-route-map {
   position: absolute;
-  inset: 5rem 1.2rem 5.2rem;
+  inset: 5rem 1.2rem clamp(7.4rem, 8vw, 8.7rem);
   display: grid;
-  gap: 0.75rem;
+  gap: clamp(0.45rem, 0.75vw, 0.75rem);
   align-content: center;
 }
 
 .visual-route-map span {
   display: grid;
-  grid-template-columns: 44px minmax(0, 1fr);
-  gap: 1rem;
+  grid-template-columns: clamp(32px, 3vw, 44px) minmax(0, 1fr);
+  gap: clamp(0.65rem, 1vw, 1rem);
   border: 1px solid rgba(192, 192, 191, 0.18);
-  padding: 0.9rem 1rem;
+  padding: clamp(0.68rem, 1vw, 0.9rem) clamp(0.78rem, 1.1vw, 1rem);
   color: var(--paper);
   background: rgba(0, 0, 0, 0.18);
 }
@@ -541,7 +551,7 @@ textarea {
 
 .visual-poster-mark {
   position: absolute;
-  inset: 4.8rem clamp(1rem, 7vw, 7rem) 5.4rem;
+  inset: 4.8rem clamp(1rem, 7vw, 7rem) clamp(6.7rem, 7.6vw, 8.1rem);
   display: grid;
   place-items: center;
   border: 1px solid rgba(192, 192, 191, 0.2);
@@ -563,7 +573,7 @@ textarea {
 
 .visual-system-grid {
   position: absolute;
-  inset: 5rem 1.2rem 5.4rem;
+  inset: 5rem 1.2rem clamp(6.8rem, 7.6vw, 8.2rem);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
@@ -580,7 +590,19 @@ textarea {
 .visual-card.visual-mobile,
 .visual-card.visual-system,
 .visual-card.visual-wave {
-  min-height: clamp(260px, 24vw, 370px);
+  min-height: clamp(300px, 26vw, 390px);
+}
+
+.visual-card.visual-route,
+.visual-card.visual-mobile {
+  min-height: clamp(320px, 29vw, 430px);
+}
+
+.visual-route .visual-title,
+.visual-mobile .visual-title,
+.visual-system .visual-title {
+  max-width: 14ch;
+  font-size: clamp(1.12rem, 1.76vw, 2.55rem);
 }
 
 .home-hero {
@@ -746,6 +768,7 @@ textarea {
 .contact-link,
 .contact-form input,
 .contact-form textarea {
+  min-width: 0;
   transition:
     border-color 170ms ease,
     background-color 170ms ease,
@@ -755,11 +778,13 @@ textarea {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
+  min-width: 0;
   border: 1px solid var(--line);
   background: rgba(0, 0, 0, 0.16);
   color: var(--paper);
   outline: none;
   padding: 0.78rem 0.9rem;
+  text-overflow: ellipsis;
 }
 
 .contact-form textarea {
@@ -1042,6 +1067,7 @@ textarea,
   color: var(--muted);
   line-height: 1.55;
   text-transform: none;
+  overflow-wrap: anywhere;
 }
 
 .package-point::before {
@@ -1080,9 +1106,11 @@ textarea,
 
 .process-card {
   position: relative;
+  min-width: 0;
   min-height: 175px;
   overflow: hidden;
   contain: paint;
+  padding: clamp(1rem, 1.2vw, 1.25rem) !important;
   transition:
     border-color 170ms ease,
     background-color 170ms ease,
@@ -1107,9 +1135,11 @@ textarea,
 }
 
 .process-step-title {
-  font-size: clamp(1.25rem, 1.45vw, 2rem);
-  line-height: 0.95;
-  overflow-wrap: normal;
+  max-width: 100%;
+  font-size: clamp(1.05rem, 1.06vw, 1.45rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
   word-break: normal;
   hyphens: manual;
 }
@@ -1435,7 +1465,7 @@ main > section:first-child {
   }
 
   .visual-card {
-    min-height: 250px;
+    min-height: 280px;
   }
 
   .visual-meta {
@@ -1444,18 +1474,28 @@ main > section:first-child {
   }
 
   .visual-title {
-    max-width: 12ch;
-    font-size: clamp(1.55rem, 11vw, 3rem);
+    max-width: min(15ch, calc(100% - 1.6rem));
+    font-size: clamp(1.22rem, 7.8vw, 2.35rem);
   }
 
   .visual-window {
-    inset: 4.6rem 0.9rem 5rem;
+    inset: 4.6rem 0.9rem 6.8rem;
   }
 
   .visual-route-map,
   .visual-system-grid,
   .visual-waveform {
-    inset: 5.2rem 0.9rem 5rem;
+    inset: 5.2rem 0.9rem 6.9rem;
+  }
+
+  .visual-route-map {
+    gap: 0.5rem;
+  }
+
+  .visual-route-map span {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 0.6rem;
+    padding: 0.62rem 0.7rem;
   }
 
   .visual-system-grid {
@@ -1463,7 +1503,20 @@ main > section:first-child {
   }
 
   .visual-poster-mark {
-    inset: 4.8rem 0.9rem 5rem;
+    inset: 4.8rem 0.9rem 6.8rem;
+  }
+
+  .visual-device {
+    top: 4.8rem;
+    bottom: 6.8rem;
+    width: min(190px, 58vw);
+  }
+
+  .visual-route .visual-title,
+  .visual-mobile .visual-title,
+  .visual-system .visual-title {
+    font-size: clamp(1.08rem, 7vw, 2.05rem);
+    max-width: 13ch;
   }
 
   .metric-tile {
@@ -1479,7 +1532,7 @@ main > section:first-child {
   }
 
   .process-step-title {
-    font-size: clamp(1.25rem, 7vw, 1.8rem);
+    font-size: clamp(1.05rem, 6vw, 1.45rem);
   }
 
   .scroll-motion-ready [data-scroll-reveal="left"],
@@ -1510,6 +1563,10 @@ main > section:first-child {
   .process-strip,
   .case-process {
     grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .process-step-title {
+    font-size: clamp(0.95rem, 0.82vw, 1.12rem);
   }
 }
 
