@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ProjectRow } from "@/components/ProjectRow";
 import { SectionLabel } from "@/components/SectionLabel";
+import { VisualPlaceholder } from "@/components/VisualPlaceholder";
 import { launchChecklist, projects } from "@/data/projects";
 
 export const metadata: Metadata = {
@@ -15,18 +16,20 @@ export default function ProjectsPage() {
     <>
       <Header active="Проекты" />
       <main className="page-shell page-grid border-x border-[var(--line)] px-4 py-8 md:px-6 md:py-10">
-        <section className="project-index-head grid gap-7 border-b border-[var(--line)] pb-9 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.45fr)]">
+        <section className="project-index-head grid gap-7 border-b border-[var(--line)] pb-9 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.48fr)]">
           <div>
             <p className="mono mb-6 text-[var(--muted)]">02. Projects / selected work</p>
             <h1 className="display case-title max-w-5xl">Работы под<br />задачу</h1>
           </div>
-          <p className="copy self-end text-[var(--muted)]">
-            Здесь не галерея ради галереи. Каждый кейс показывает задачу, роль, стек и результат.
-          </p>
+          <VisualPlaceholder label="case wall / preview" title="Не галерея, а доказательства" variant="poster" />
         </section>
 
         <section className="section project-catalog">
           <SectionLabel index="01" title="Каталог" />
+          <div className="visual-break mb-3 grid gap-3 lg:grid-cols-[minmax(0,0.58fr)_minmax(0,0.42fr)]">
+            <VisualPlaceholder label="selected work / ui" title="Будущие скриншоты" variant="screen" />
+            <VisualPlaceholder label="result graph / signal" title="Роль, стек, итог" variant="wave" />
+          </div>
           <div className="grid gap-3">{projects.map((project) => <ProjectRow key={project.id} project={project} />)}</div>
         </section>
 
